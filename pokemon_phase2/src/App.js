@@ -12,7 +12,9 @@ function App() {
       <header className="App-header">
       </header>
       <div>
+        <nav>
         <NavBar/>
+        </nav>
         <Home />
         <CardsContainer/>
         <DeckBuilder/>
