@@ -1,17 +1,23 @@
-import React, {useEffect,useState} from "react";
+import React from "react";
+import CardItem from "./CardItem";
 
-function CardsContainer () {
-    const [pokemon,setPokemon] = useState([])
 
-    useEffect(() => {
-        fetch(`https://api.pokemontcg.io/v2/cards/`)
-        .then(resp => resp.json())
-        .then(data => setPokemon(data))
-    },[])
 
-    console.log(pokemon)
+function CardsContainer ({pokemonCards}) {
 
-    return ("CardsContainer")
+    const pokemonCard = pokemonCards?.map((pokemon)=>{
+        return (<CardItem key={pokemon.id} name={pokemon.name} image={pokemon.images.small}/>)
+    })
+
+    
+
+    return (
+
+        <div>
+            {pokemonCard} 
+        </div>
+       
+    )
 }
 
 export default CardsContainer
