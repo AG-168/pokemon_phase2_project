@@ -1,18 +1,30 @@
 import './App.css';
-import { Link } from "react-router-dom";
+import CardsContainer from './components/CardsContainer';
+import DeckBuilder from './components/DeckBuilder';
+import NavBar from "./components/NavBar"
+import Home from "./components/Home"
+import {Route} from "react-router-dom"
+
+
 
 function App() {
   return (
-    <div className="App">
-      <nav className="navbar">
-        <Link className="link" to="/">
-          Home
-        </Link>
-        <Link className="link" to="/about">
-          About
-        </Link>
-      </nav>
-    </div>
+      <div>
+        <nav id="NavBar">
+        <NavBar/>
+        </nav>
+       
+        <Route path="*">
+        <Home />
+        </Route>
+        <Route path="/CardsContainer">
+        <CardsContainer/>
+        </Route>
+        <Route path="DeckBuilder">
+        <DeckBuilder />
+        </Route>
+      
+      </div>
   );
 }
 
