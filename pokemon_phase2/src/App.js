@@ -13,17 +13,12 @@ function App() {
         <nav id="NavBar">
         <NavBar/>
         </nav>
-       <Routes>
-        <Route path="*" element={}>
-        <Home />
-        </Route>
-        <Route path="/CardsContainer">
-        <CardsContainer/>
-        </Route>
-        <Route path="DeckBuilder">
-        <DeckBuilder />
-        </Route>
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route path="/CardsContainer" element={<CardsContainer/>}></Route>
+          <Route path="DeckBuilder" element={<DeckBuilder />}></Route>
         </Routes>
+      
       </div>
   );
 }
