@@ -1,12 +1,22 @@
 import './App.css';
+import CardsContainer from './components/CardsContainer';
+import DeckBuilder from './components/DeckBuilder';
+import NavBar from "./components/NavBar"
+import Home from "./components/Home"
 
 
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <header className="App-header">
       </header>
+      <div>
+        <NavBar/>
+        <Home />
+        <CardsContainer/>
+        <DeckBuilder/>
+      </div>
     </div>
   );
 }
