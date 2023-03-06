@@ -1,8 +1,12 @@
 import React from "react";
 
-function CardItem () {
+function CardItem ({ name, image}) {
     return (
-        "Display Each Card Here"
+        <div>
+
+            Name: {name}
+            <img src={image} alt={name}/>
+        </div>
     )
 }
 
