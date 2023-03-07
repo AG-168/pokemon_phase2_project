@@ -1,0 +1,8 @@
+#pokemon-display {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#pokemon-display>* {
+    flex: 0 0 16.666%;
+}
