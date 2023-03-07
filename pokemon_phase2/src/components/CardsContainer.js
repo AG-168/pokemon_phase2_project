@@ -15,6 +15,7 @@ function CardsContainer ({pokemonCards}) {
 
         <div>
             {pokemonCard} 
+            {console.log(pokemonCards)}
         </div>
        
     )

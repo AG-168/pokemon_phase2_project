@@ -14,7 +14,7 @@ function App() {
   const [pokemonCards, setPokemonCards] = useState([])
 
   useEffect(()=>{
-    fetch(`https://api.pokemontcg.io/v2/cards?page=1&pageSize=30`,{
+    fetch(`https://api.pokemontcg.io/v2/cards?page=1&pageSize=250`,{
       headers:{"X-Api-Key":"bb77e11f-41e0-469f-b7cd-178f48bbf1d2"}
     })
     .then((r)=>r.json())
