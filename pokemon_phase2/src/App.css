@@ -45,3 +45,27 @@ body {
     text-align: center; 
     margin-top: 90px;
 }
+
+#home-page {
+    background-image: url(../public/giorgio-trovato-W7KDN4OB_zI-unsplash.jpg);
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    position: fixed;
+    opacity: 0.7;
+}
+
+#home-page-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    font-size: 50px;
+    color: #006400;
+    opacity: 1.5;
+    
+}
