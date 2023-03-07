@@ -14,7 +14,7 @@ function App() {
   const [pokemonCards, setPokemonCards] = useState([])
 
   useEffect(()=>{
-    fetch(`https://api.pokemontcg.io/v2/cards?page=1&pageSize=250`,{
+    fetch(`https://api.pokemontcg.io/v2/cards?page=1&pageSize=30`,{
       headers:{"X-Api-Key":"bb77e11f-41e0-469f-b7cd-178f48bbf1d2"}
     })
     .then((r)=>r.json())
@@ -23,13 +23,23 @@ function App() {
     })
   }, [])
 
+  function handleSearchSubmit (searchText) {
+    fetch(`https://api.pokemontcg.io/v2/cards?q=name:${searchText}*`,{
+      headers:{"X-Api-Key":"bb77e11f-41e0-469f-b7cd-178f48bbf1d2"}
+    })
+    .then((r)=>r.json())
+    .then((data)=>{
+      setPokemonCards(data.data)
+    })
+  }
+
 
   return (
       <div>
         <NavBar/>
         <Routes>
           <Route path="*" element={<Home />}></Route>
-          <Route path="/CardsContainer" element={<CardsContainer pokemonCards={pokemonCards}/>}></Route>
+          <Route path="/CardsContainer" element={<CardsContainer pokemonCards={pokemonCards} onHandleSubmit={handleSearchSubmit}/>}></Route>
           <Route path="DeckBuilder" element={<DeckBuilder />}></Route>
         </Routes>
       
