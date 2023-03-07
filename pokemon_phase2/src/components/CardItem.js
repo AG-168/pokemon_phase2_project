@@ -2,7 +2,7 @@ import React from "react";
 
 function CardItem ({ name, image}) {
     return (
-        <div>
+        <div className="indiv-card">
             Name: {name}
             <img src={image} alt={name}/>
             <button>Add to Wishlist</button>

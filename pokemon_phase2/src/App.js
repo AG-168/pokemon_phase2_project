@@ -19,7 +19,7 @@ function App() {
     })
     .then((r)=>r.json())
     .then((data)=>{
-      console.log(data.data);
+      // console.log(data.data);
       setPokemonCards(data.data.sort(() => Math.random() - 0.5))
     })
   }, [])
@@ -33,10 +33,6 @@ function App() {
       setPokemonCards(data.data)
     })
   }
-
-  // function shuffleArray(arr) {
-  //   arr.sort(() => Math.random() - 0.5);
-  // }
 
 
   return (

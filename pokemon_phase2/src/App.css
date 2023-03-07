@@ -6,3 +6,9 @@
 #pokemon-display>* {
     flex: 0 0 16.666%;
 }
+
+.indiv-card {
+    border-style: solid;
+    padding: 25px 25px 25px 25px;
+    border-radius: 15px;
+}
