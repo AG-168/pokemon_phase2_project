@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import Login from "./components/login"
 import SignUp from './components/SignupForm';
+import SignOut from './components/SignOut';
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/DeckBuilder" element={<DeckBuilder />}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/SignUp" element= {<SignUp />}></Route>
+          <Route path="/SignOut" element= {<SignOut />}></Route>
         </Routes>
       
       </div>
