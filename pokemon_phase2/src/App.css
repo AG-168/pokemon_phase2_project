@@ -1,4 +1,6 @@
 #pokemon-display {
+    position: absolute;
+    top:120px;
     width: auto;
     display: flex;
     flex-wrap: wrap;
@@ -20,4 +22,26 @@ body {
     border-style: solid;
     padding: 10px 10px 10px 10px;
     border-radius: 15px;
+}
+
+#navBar {
+    background-color: #E9967A;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 10;
+}
+
+#search-form {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 50%;
+    height: 60px; 
+    text-align: center; 
+    margin-top: 90px;
 }
