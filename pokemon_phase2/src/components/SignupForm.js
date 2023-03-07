@@ -8,7 +8,11 @@ const SignupForm = Userfront.build({
 });
 
 function SignUp () {
-    return <SignupForm />
+    return (
+    <div>
+    <SignupForm />
+    </div>
+    )
 }
 
 export default SignUp
