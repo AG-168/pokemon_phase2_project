@@ -7,6 +7,7 @@ function NavBar () {
            <NavLink to="*">Home</NavLink>
            <NavLink to="/CardsContainer">Cards</NavLink>
            <NavLink to="/DeckBuilder">Build Your Decks</NavLink>
+           <NavLink to="/login">login</NavLink>
         </nav>
     )
 }
