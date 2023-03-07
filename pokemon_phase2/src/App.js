@@ -10,8 +10,6 @@ import SignUp from './components/SignupForm';
 import SignOut from './components/SignOut';
 
 
-
-
 function App() {
 
   const [pokemonCards, setPokemonCards] = useState([])
