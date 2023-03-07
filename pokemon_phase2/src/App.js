@@ -43,9 +43,9 @@ function App() {
         <Routes>
           <Route path="*" element={<Home />}></Route>
           <Route path="/CardsContainer" element={<CardsContainer pokemonCards={pokemonCards} onHandleSubmit={handleSearchSubmit}/>}></Route>
-          <Route path="DeckBuilder" element={<DeckBuilder />}></Route>
-          <Route path="Login" element={<Login />}></Route>
-          <Route path="SignUp" element= {<SignUp />}></Route>
+          <Route path="/DeckBuilder" element={<DeckBuilder />}></Route>
+          <Route path="/Login" element={<Login />}></Route>
+          <Route path="/SignUp" element= {<SignUp />}></Route>
         </Routes>
       
       </div>
