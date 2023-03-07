@@ -12,6 +12,7 @@ import Home from "./components/Home";
 function App() {
 
   const [pokemonCards, setPokemonCards] = useState([])
+  let randomInt = Math.floor(Math.random())
 
   useEffect(()=>{
     fetch(`https://api.pokemontcg.io/v2/cards?page=1&pageSize=100`,{
