@@ -1,0 +1,23 @@
+#pokemon-display {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center; 
+    justify-content: space-evenly;
+}
+#pokemon-display>* {
+    flex: 0 0 16.666%;
+}
+
+body {
+    background-color: #93C47D;
+    }
+
+
+
+.indiv-card {
+    border-style: solid;
+    padding: 10px 10px 10px 10px;
+    border-radius: 15px;
+}
