@@ -24,7 +24,7 @@ function CardsContainer ({pokemonCards, onHandleSubmit}) {
     return (
 
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} id="search-form">
                 <input type="text" id="pokemon-search" placeholder="Search Pokemon" onChange={handleSearchInput} value={searchText}/>
                 <button type="submit">Search</button>
             </form> 
