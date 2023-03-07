@@ -10,8 +10,6 @@ import SignUp from './components/SignupForm';
 import SignOut from './components/SignOut';
 
 
-
-
 function App() {
 
   const [pokemonCards, setPokemonCards] = useState([])
@@ -29,6 +27,7 @@ function App() {
   }, [])
 
   function handleSearchSubmit (searchText) {
+    
     fetch(`https://api.pokemontcg.io/v2/cards?q=name:${searchText}*`,{
       headers:{"X-Api-Key":"bb77e11f-41e0-469f-b7cd-178f48bbf1d2"}
     })
