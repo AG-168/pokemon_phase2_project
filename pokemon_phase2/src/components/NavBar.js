@@ -10,6 +10,7 @@ function NavBar () {
            <NavLink to="/DeckBuilder"> Build Your Decks</NavLink>
            <NavLink to="/Login"> Login</NavLink>
            <NavLink to="/SignUp"> SignUp</NavLink>
+           <NavLink to="/SignOut">SignOut</NavLink>
         </nav>
     )
 }
