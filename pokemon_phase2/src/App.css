@@ -45,3 +45,8 @@ body {
     text-align: center; 
     margin-top: 90px;
 }
+
+#userfront-logout-button {
+    font-size: 100px;
+    position: absolute;
+}
