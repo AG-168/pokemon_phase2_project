@@ -5,10 +5,10 @@ function CardItem ({ name, image}) {
         <div className="indiv-card">
             
             <img src={image} alt={name}/>
-            <span>Name: {name}</span>
-            <span>
+            <h3>Name: {name}</h3>
+            <p>
             <button>Add to Wishlist</button>
-            </span>
+            </p>
         </div>
     )
 }
