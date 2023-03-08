@@ -69,15 +69,15 @@ function App() {
     fetch(`https://api.userfront.com/v0/self`, {
     method: "GET",
     headers: {
-  "Content-Type": "application/json",
-  Authorization: `Bearer ${Userfront.accessToken()}`}
-})
-.then((res)=>res.json())
-.then((data)=>{
-  setUserId(data.userId)
-  setUserPokemon(data.data.pokemon)
-})
-}, [])
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${Userfront.accessToken()}`}
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+      setUserId(data.userId)
+      setUserPokemon(data.data.pokemon)
+    })
+    }, [])
 
   
 

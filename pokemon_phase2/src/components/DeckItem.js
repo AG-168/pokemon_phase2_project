@@ -4,7 +4,7 @@ function DeckItem ({name,id,image}) {
     
     
     return (
-        <div>
+        <div className="indiv-card">
             <img src={image} alt={name}/>
             Name:{name}
             ID:{id}
