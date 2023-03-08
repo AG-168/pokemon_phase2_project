@@ -8,12 +8,15 @@ import Home from "./components/Home";
 import Login from "./components/login"
 import SignUp from './components/SignupForm';
 import SignOut from './components/SignOut';
+import Userfront from "@userfront/react";
 
 
 function App() {
 
   const [pokemonCards, setPokemonCards] = useState([])
   const [randomPage, setRandomPage] = useState(getRandomInt)
+  const [userId, setUserId] = useState(null)
+  const [userPokemon, setUserPokemon] = useState([])
 
   function getRandomInt() {
     return Math.floor(Math.random() * 159);
@@ -45,18 +48,51 @@ function App() {
   }
 
 
+  function onHandleAddPokemon(pokemonData) {
+    const newDataPatch = {"pokemon":[...userPokemon,pokemonData]}
+    
+    fetch(`https://api.userfront.com/v0/users/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${Userfront.accessToken()}`},
+        body: JSON.stringify({data:newDataPatch})
+
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+        setUserPokemon(data.data.pokemon)
+    })
+  }
+
+  useEffect(()=>{
+    fetch(`https://api.userfront.com/v0/self`, {
+    method: "GET",
+    headers: {
+  "Content-Type": "application/json",
+  Authorization: `Bearer ${Userfront.accessToken()}`}
+})
+.then((res)=>res.json())
+.then((data)=>{
+  setUserId(data.userId)
+  setUserPokemon(data.data.pokemon)
+})
+}, [])
+
+  
+
+
   return (
       <div>
         <NavBar onHandleCardsClick={handleCardsClick}/>
         <Routes>
           <Route path="*" element={<Home />}></Route>
-          <Route path="/CardsContainer" element={<CardsContainer pokemonCards={pokemonCards} onHandleSubmit={handleSearchSubmit}/>}></Route>
-          <Route path="/DeckBuilder" element={<DeckBuilder />}></Route>
+          <Route path="/CardsContainer" element={<CardsContainer pokemonCards={pokemonCards} onHandleSubmit={handleSearchSubmit} onHandleAddPokemon={onHandleAddPokemon}/>}></Route>
+          <Route path="/DeckBuilder" element={<DeckBuilder userPokemon={userPokemon}/>}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/SignUp" element= {<SignUp />}></Route>
           <Route path="/SignOut" element= {<SignOut />}></Route>
         </Routes>
-      
       </div>
   );
 }
