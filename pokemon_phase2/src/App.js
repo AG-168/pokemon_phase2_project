@@ -13,7 +13,7 @@ import SignOut from './components/SignOut';
 function App() {
 
   const [pokemonCards, setPokemonCards] = useState([])
-  let randomInt = Math.floor(Math.random())
+  let randomInt = Math.floor(Math.random() * 159)
 
   useEffect(()=>{
     fetch(`https://api.pokemontcg.io/v2/cards?page=1&pageSize=100`,{
