@@ -7,7 +7,7 @@ import CardItem from "./CardItem";
 function CardsContainer ({pokemonCards, onHandleSubmit}) {
 
     const pokemonCard = pokemonCards?.map((pokemon)=>{
-        return (<CardItem key={pokemon.id} id={pokemon.id} name={pokemon.name} image={pokemon.images.small}/>)
+        return (<CardItem key={pokemon.id} id={pokemon.id} name={pokemon.name} image={pokemon.images.small} />)
     })
 
     function handleSubmit (e) {
