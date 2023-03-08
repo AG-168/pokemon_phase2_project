@@ -2,7 +2,12 @@ import "../App.css"
 import React from "react";
 import {NavLink} from "react-router-dom"
 
-function NavBar () {
+function NavBar ({onHandleCardsClick}) {
+
+    function handleCardsClick () {
+        onHandleCardsClick()
+    }
+
     return (
         <nav id="navBar">
            <NavLink to="*" className="link"> Home</NavLink>
