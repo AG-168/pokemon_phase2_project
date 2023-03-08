@@ -4,7 +4,7 @@ import Userfront from "@userfront/react";
 
 function DeckBuilder () {
 
-    const [userData, setUserData] = useState([])
+    const [userPokemon, setUserPokemon] =useState([])
 
     useEffect(()=>{
         fetch(`https://api.userfront.com/v0/self`, {
@@ -15,15 +15,14 @@ function DeckBuilder () {
     })
     .then((res)=>res.json())
     .then((data)=>{
-        setUserData(data)
-        console.log(data)
+        setUserPokemon(data.data)
     })
     }, [])
 
 
     return (
         <div>
-            {userData}
+            
         </div>
         )
 }
