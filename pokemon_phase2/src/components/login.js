@@ -7,9 +7,13 @@ const LoginForm = Userfront.build({
   toolId: "mllnrkk"
 });
 
+
 function Login () {
+  
     return (
-     <LoginForm />
+      <div>
+     <LoginForm/>
+     </div>
 )
     
 }
