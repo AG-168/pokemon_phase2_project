@@ -13,17 +13,21 @@ import SignOut from './components/SignOut';
 function App() {
 
   const [pokemonCards, setPokemonCards] = useState([])
+  const [randomPage, setRandomPage] = useState(getRandomInt)
+
+  function getRandomInt() {
+    return Math.floor(Math.random() * 159);
+  }
 
   useEffect(()=>{
-    fetch(`https://api.pokemontcg.io/v2/cards?page=1&pageSize=100`,{
+    fetch(`https://api.pokemontcg.io/v2/cards?page=${randomPage}&pageSize=100`,{
       headers:{"X-Api-Key":"bb77e11f-41e0-469f-b7cd-178f48bbf1d2"}
     })
     .then((r)=>r.json())
     .then((data)=>{
-      // console.log(data.data);
-      setPokemonCards(data.data.sort(() => Math.random() - 0.5))
+      setPokemonCards(data.data)
     })
-  }, [])
+  }, [randomPage])
 
   function handleSearchSubmit (searchText) {
     
@@ -36,10 +40,14 @@ function App() {
     })
   }
 
+  function handleCardsClick () {
+    setRandomPage(getRandomInt)
+  }
+
 
   return (
       <div>
-        <NavBar/>
+        <NavBar onHandleCardsClick={handleCardsClick}/>
         <Routes>
           <Route path="*" element={<Home />}></Route>
           <Route path="/CardsContainer" element={<CardsContainer pokemonCards={pokemonCards} onHandleSubmit={handleSearchSubmit}/>}></Route>
