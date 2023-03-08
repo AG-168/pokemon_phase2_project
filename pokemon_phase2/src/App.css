@@ -67,5 +67,18 @@ body {
     font-size: 50px;
     color: #006400;
     opacity: 1.5;
-    
+}
+
+#deck-display {
+    position: absolute;
+    top:120px;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center; 
+    justify-content: space-evenly;
+}
+#deck-display>* {
+    flex: 0 0 16.666%;
 }

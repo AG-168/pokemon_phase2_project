@@ -10,7 +10,7 @@ function DeckBuilder ({userPokemon}) {
     
 
     return (
-        <div>
+        <div id="deck-display">
             {deckDisplay}
         </div>
         )

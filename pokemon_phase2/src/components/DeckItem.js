@@ -8,6 +8,7 @@ function DeckItem ({name,id,image}) {
             <img src={image} alt={name}/>
             Name:{name}
             ID:{id}
+            <button>Delete</button>
         </div>
     )
 }
