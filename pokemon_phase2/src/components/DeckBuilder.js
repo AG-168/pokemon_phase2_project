@@ -1,28 +1,17 @@
 import React, {useState, useEffect} from "react";
-import Userfront from "@userfront/react";
+import DeckItem from "./DeckItem";
 
 
-function DeckBuilder () {
+function DeckBuilder ({userPokemon}) {
 
-    const [userPokemon, setUserPokemon] =useState([])
-
-    useEffect(()=>{
-        fetch(`https://api.userfront.com/v0/self`, {
-        method: "GET",
-        headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${Userfront.accessToken()}`}
+    const deckDisplay = userPokemon.map((pokemon)=>{
+        return <DeckItem key={pokemon.identifier} id={pokemon.identifier} image={pokemon.image} name={pokemon.name}/>
     })
-    .then((res)=>res.json())
-    .then((data)=>{
-        setUserPokemon(data.data)
-    })
-    }, [])
-
+    
 
     return (
-        <div>
-            
+        <div id="deck-display">
+            {deckDisplay}
         </div>
         )
 }
