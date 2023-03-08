@@ -30,7 +30,7 @@ body {
 
 #navBar {
     background-color: #E9967A;
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -80,10 +80,6 @@ body {
     opacity: 1.7;
     font-family: Pokemon;
     text-shadow: 3px 3px black;
-}
-
-#navBar .link {
-    border: 5px;
 }
 
 #userfront-logout-button {
