@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@userfront/core": "^0.5.0",
     "@userfront/react": "^0.3.1"
   }
 }
