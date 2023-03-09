@@ -1,14 +1,17 @@
 import React from "react"
 
-function DeckItem ({name,id,image}) {
+function DeckItem ({name,id,image,onHandleDeleteClick}) {
     
+    function handleDeleteClick () {
+        onHandleDeleteClick(id)
+    }
     
     return (
-        <div>
+        <div className="indiv-card">
             <img src={image} alt={name}/>
-            Name:{name}
-            ID:{id}
-            <button>Delete</button>
+            <h3>Name:{name}</h3>
+            <p>ID:{id}</p>
+            <button onClick={handleDeleteClick}>Delete</button>
         </div>
     )
 }
