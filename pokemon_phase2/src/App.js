@@ -33,7 +33,6 @@ function App() {
   }, [randomPage])
 
   function handleSearchSubmit (searchText) {
-    
     fetch(`https://api.pokemontcg.io/v2/cards?q=name:${searchText}*`,{
       headers:{"X-Api-Key":"bb77e11f-41e0-469f-b7cd-178f48bbf1d2"}
     })
@@ -49,15 +48,14 @@ function App() {
 
 
   function onHandleAddPokemon(pokemonData) {
-    const newDataPatch = {"pokemon":[...userPokemon,pokemonData]}
+    const newPokemonPatch = {"pokemon":[...userPokemon,pokemonData]}
     
     fetch(`https://api.userfront.com/v0/users/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${Userfront.accessToken()}`},
-        body: JSON.stringify({data:newDataPatch})
-
+        body: JSON.stringify({data:newPokemonPatch})
     })
     .then((res)=>res.json())
     .then((data)=>{
@@ -79,7 +77,25 @@ function App() {
     })
     }, [])
 
-  
+  function onHandleDeleteClick (id) {
+    const deletePokemonArray = userPokemon.filter((pokemon)=>{
+      return pokemon.identifier !== id
+    })
+    const deletePokemonPatch = {"pokemon":deletePokemonArray}
+    
+    fetch(`https://api.userfront.com/v0/users/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${Userfront.accessToken()}`},
+        body: JSON.stringify({data:deletePokemonPatch})
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+        setUserPokemon(data.data.pokemon)
+    })
+
+  }
 
 
   return (
@@ -88,7 +104,7 @@ function App() {
         <Routes>
           <Route path="*" element={<Home />}></Route>
           <Route path="/CardsContainer" element={<CardsContainer pokemonCards={pokemonCards} onHandleSubmit={handleSearchSubmit} onHandleAddPokemon={onHandleAddPokemon}/>}></Route>
-          <Route path="/DeckBuilder" element={<DeckBuilder userPokemon={userPokemon}/>}></Route>
+          <Route path="/DeckBuilder" element={<DeckBuilder userPokemon={userPokemon} onHandleDeleteClick={onHandleDeleteClick}/>}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/SignUp" element= {<SignUp />}></Route>
           <Route path="/SignOut" element= {<SignOut />}></Route>
