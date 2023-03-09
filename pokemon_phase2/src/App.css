@@ -2,6 +2,10 @@
     font-family: Pokemon;
     src: url("../public/Pokemon-Solid.ttf");
 }
+@import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+
+
 
 #pokemon-display {
     position: absolute;
@@ -19,17 +23,18 @@
 }
 
 body {
-    background-color: #93C47D;
+    background-color: #7046ee;
     }
 
 .indiv-card {
     border-style: solid;
     padding: 10px 10px 10px 10px;
     border-radius: 15px;
+    
 }
 
 #navBar {
-    background-color: #E9967A;
+    background-color: #7046ee;
     position: absolute;
     top: 0;
     left: 0;
@@ -39,15 +44,31 @@ body {
     align-items: center;
     justify-content: flex-start;
     z-index: 10;
-    font-family: Pokemon;
     font-size: 20px;
+    
 }
 
 .link {
     padding: 20px;
+    color: white;
+    text-shadow: 
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+     text-decoration: none;
+     
+}
+.link:hover {
+    color:red;
+    animation: spring 300ms ease-out;
+    
+
+
 }
 
 #search-form {
+
     margin: 20px auto;
     width: 100%;
     max-width: 50%;
