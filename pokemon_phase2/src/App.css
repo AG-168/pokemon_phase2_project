@@ -219,3 +219,6 @@ h3, p {
 .el-button el-button--danger {
     position: relative;
 }
+#loading-page {
+    color: yellow;
+}
