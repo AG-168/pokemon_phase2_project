@@ -114,3 +114,9 @@ body {
 #deck-display>* {
     flex: 0 0 16.666%;
 }
+
+#loading-page {
+    display: flex;
+    width: auto;
+    height: auto;
+}
