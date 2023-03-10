@@ -4,9 +4,7 @@ import React from "react"
 
 function LoadingPage () {
     return (
-        <h1 id="loading-page">
-            LOADING
-        </h1>
+        <div id="loading-page" class="water"></div>
     )
 }
 
