@@ -2,6 +2,10 @@
     font-family: Pokemon;
     src: url("../public/Pokemon-Solid.ttf");
 }
+@font-face {
+    font-family: Arcade;
+    src: url("../public/PublicPixel-z84yD.ttf")
+}
 @import "https://unpkg.com/open-props" layer(design.system);
 @import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
 
@@ -16,7 +20,7 @@
     gap: 10px;
     align-items: center; 
     justify-content: space-evenly;
-    background-image: url("../public/bahnijit-barman-1fZC2rYbpsU-unsplash.jpg");
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)),url("../public/bahnijit-barman-1fZC2rYbpsU-unsplash.jpg");
     background-size: 100% 100%;
     background-attachment: fixed;
     background-position: center;
@@ -27,6 +31,7 @@
     top: 0;
     overflow: hidden;
     position: relative;
+    
 }
 
 #pokemon-display>* {
@@ -44,7 +49,16 @@ body {
     
     background-color: bisque;
     text-align: center;
+    background: conic-gradient(
+        #ff53bb ,
+        #0000 30deg 120deg,
+        #00f8d3 150deg 180deg,
+        #0000 210deg 300deg,
+        #ff53bb 330deg
+    );
+
 }
+
 
 #navBar {
     background-color: #7046ee;
@@ -58,27 +72,54 @@ body {
     justify-content: flex-start;
     z-index: 10;
     font-size: 20px;
+    border-radius: 20px;
     
 }
 
 .link {
     padding: 20px;
-    color: white;
+    color: yellow;
     text-shadow: 
     -1px -1px 0 black,
      1px -1px 0 black,
     -1px  1px 0 black,
      1px  1px 0 black;
      text-decoration: none;
+     font-family: Pokemon;
+     border-style: solid;
+     
+   
+     
      
 }
 .link:hover {
     color:red;
     animation: spring 300ms ease-out;
     
-
-
 }
+
+.link:active {
+    transform: translateY(4px);
+  }
+  
+  @keyframes spring {
+    15% {
+      -webkit-transform-origin: center center;
+      -webkit-transform: scale(1.2, 1.1);
+    }
+    40% {
+      -webkit-transform-origin: center center;
+      -webkit-transform: scale(0.95, 0.95);
+    }
+    75% {
+      -webkit-transform-origin: center center;
+      -webkit-transform: scale(1.05, 1);
+    }
+    100% {
+      -webkit-transform-origin: center center;
+      -webkit-transform: scale(1, 1);
+    }
+  }
 
 #search-form {
 
@@ -88,7 +129,34 @@ body {
     height: 60px; 
     text-align: center; 
     margin-top: 90px;
+  
 }
+
+#pokemon-search {
+    background-color: white;
+    width: 70%;
+    /* height: var(--nav-height); */
+    display: grid;
+    grid-template-columns: auto 90px;
+    grid-template-rows: 100%;
+    margin-top: 30px;
+    position: relative;
+    top:0px;
+    left: 50%;
+    overflow: hidden;
+    box-shadow: 0 10px 20px 4px rgba(40, 40, 40, 0.5);
+    border-radius: 8px;
+    transform: translateX(-50%)
+}
+
+.btn-search {
+    background-color: #dedede;
+    padding: 0 15px;
+    transition: all 150ms ease-out;
+
+  
+}
+
 
 #home-page {
     background-image: url(../public/giorgio-trovato-W7KDN4OB_zI-unsplash.jpg);
@@ -134,4 +202,20 @@ body {
 
 #deck-display>* {
     flex: 0 0 16.666%;
+}
+
+h3, p {
+    font-family: Arcade;
+    color: white;
+    font-size: 13px;
+    text-shadow: 
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+
+}
+
+.el-button el-button--danger {
+    position: relative;
 }
