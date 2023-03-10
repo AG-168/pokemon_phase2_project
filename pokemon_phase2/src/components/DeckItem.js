@@ -10,7 +10,7 @@ function DeckItem ({name,id,image,onHandleDeleteClick}) {
         <div className="indiv-card">
             <img src={image} alt={name}/>
             <h3>Name:{name}</h3>
-            <p>ID:{id}</p>
+            <p className="id">ID:{id}</p>
             <button onClick={handleDeleteClick}>Delete</button>
         </div>
     )

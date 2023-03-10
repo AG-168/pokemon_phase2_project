@@ -214,7 +214,7 @@ body {
     flex: 0 0 16.666%;
 }
 
-h3, p {
+h3, p.id {
     font-family: Arcade;
     color: white;
     font-size: 13px;
