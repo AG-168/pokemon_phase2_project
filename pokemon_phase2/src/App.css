@@ -116,7 +116,5 @@ body {
 }
 
 #loading-page {
-    display: flex;
-    width: auto;
-    height: auto;
+    color: yellow;
 }
