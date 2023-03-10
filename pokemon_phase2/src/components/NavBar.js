@@ -1,6 +1,7 @@
 import "../App.css"
 import React from "react";
 import {NavLink} from "react-router-dom"
+import Userfront from "@userfront/react";
 
 function NavBar ({onHandleCardsClick}) {
 
@@ -15,7 +16,7 @@ function NavBar ({onHandleCardsClick}) {
            <NavLink to="/DeckBuilder" className="link"> Build Your Decks</NavLink>
            <NavLink to="/Login" className="link"> Login</NavLink>
            <NavLink to="/SignUp" className="link"> SignUp</NavLink>
-           <NavLink to="/SignOut" className="link">SignOut</NavLink>
+           <NavLink to="/SignOut" className="link" onClick={Userfront.logout}>SignOut</NavLink>
         </nav>
     )
 }

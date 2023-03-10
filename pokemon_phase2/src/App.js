@@ -9,36 +9,42 @@ import Login from "./components/login"
 import SignUp from './components/SignupForm';
 import SignOut from './components/SignOut';
 import Userfront from "@userfront/react";
+import LoadingPage from './components/LoadingPage';
 
 
 function App() {
-
+  const [isLoading, setIsLoading] =useState(false)
   const [pokemonCards, setPokemonCards] = useState([])
   const [randomPage, setRandomPage] = useState(getRandomInt)
   const [userId, setUserId] = useState(null)
   const [userPokemon, setUserPokemon] = useState([])
+  
 
   function getRandomInt() {
     return Math.floor(Math.random() * 159);
   }
 
   useEffect(()=>{
+    setIsLoading(true)
     fetch(`https://api.pokemontcg.io/v2/cards?page=${randomPage}&pageSize=100`,{
       headers:{"X-Api-Key":"bb77e11f-41e0-469f-b7cd-178f48bbf1d2"}
     })
     .then((r)=>r.json())
     .then((data)=>{
       setPokemonCards(data.data)
+      setIsLoading(false)
     })
   }, [randomPage])
 
   function handleSearchSubmit (searchText) {
+    setIsLoading(true)
     fetch(`https://api.pokemontcg.io/v2/cards?q=name:${searchText}*`,{
       headers:{"X-Api-Key":"bb77e11f-41e0-469f-b7cd-178f48bbf1d2"}
     })
     .then((r)=>r.json())
     .then((data)=>{
       setPokemonCards(data.data)
+      setIsLoading(false)
     })
   }
 
@@ -94,7 +100,6 @@ function App() {
     .then((data)=>{
         setUserPokemon(data.data.pokemon)
     })
-
   }
 
 
@@ -103,7 +108,7 @@ function App() {
         <NavBar onHandleCardsClick={handleCardsClick}/>
         <Routes>
           <Route path="*" element={<Home />}></Route>
-          <Route path="/CardsContainer" element={<CardsContainer pokemonCards={pokemonCards} onHandleSubmit={handleSearchSubmit} onHandleAddPokemon={onHandleAddPokemon}/>}></Route>
+          <Route path="/CardsContainer" element={ isLoading? <LoadingPage/>: <CardsContainer pokemonCards={pokemonCards} onHandleSubmit={handleSearchSubmit} onHandleAddPokemon={onHandleAddPokemon}/>}></Route>
           <Route path="/DeckBuilder" element={<DeckBuilder userPokemon={userPokemon} onHandleDeleteClick={onHandleDeleteClick}/>}></Route>
           <Route path="/Login" element={<Login />}></Route>
           <Route path="/SignUp" element= {<SignUp />}></Route>
