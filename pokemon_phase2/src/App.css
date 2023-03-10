@@ -226,16 +226,7 @@ body {
     gap: 10px;
     align-items: center; 
     justify-content: space-evenly;
-    background-image: url("../public/bahnijit-barman-1fZC2rYbpsU-unsplash.jpg");
-    background-size: 100% 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    top:auto;
-    overflow: hidden;
+    
 }
 
 #deck-display>* {
